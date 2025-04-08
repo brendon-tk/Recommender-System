@@ -58,4 +58,4 @@ if st.button("Show recommendation"):
     cols = st.columns(5)
     for i, movie in enumerate(recommendations):
         with cols[i % 5]:
-            st.image(fetch_poster(movie), caption=movie, use_column_width=True)
+            st.image(fetch_poster(movie), caption=movie, use_container_width=True)  # Updated here
