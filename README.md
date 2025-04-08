@@ -4,7 +4,9 @@
 
 This project is a Movies Recommendation System that leverages artificial intelligence to suggest movies based on user input. It utilizes cosine similarity to compare movie descriptions and genres, providing personalized recommendations.
 
-![App Screenshot](https://via.placeholder.com/800x400?text=App+Screenshot)
+![App Screenshot](1.png)  <!-- Replace with the path to your first image -->
+![App Screenshot](2.png)  <!-- Replace with the path to your second image -->
+![App Screenshot](3.png)  <!-- Replace with the path to your 'r' image -->
 
 ## Features
 
@@ -27,17 +29,6 @@ This project is a Movies Recommendation System that leverages artificial intelli
    ```bash
    git clone https://github.com/yourusername/Movies-Recommendation-System.git
    cd Movies-Recommendation-System
-
-   Install the required packages:
-bash
-
-Copy
-pip install -r requirements.txt
-Create a .env file and add your TMDB API key:
-plaintext
-
-Copy
-TMDB_API_KEY=your_api_key_here
 Usage
 Run the Streamlit app:
 bash
@@ -51,20 +42,3 @@ The dataset used in this project is the TMDB 5000 Movies Dataset, which includes
 
 Contributing
 Contributions are welcome! Please create a pull request for any improvements or features you would like to add.
-
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-livecodeserver
-
-Copy
-
-### Instructions to Add the README
-
-1. Go to your GitHub repository.
-2. Click on "Add a README".
-3. Copy and paste the above content into the README file.
-4. Replace any placeholders (like `yourusername` and `your_api_key_here`) with your actual information.
-5. Commit the changes.
-
-This will provide a clear and informative overview of your project for anyone who visits your GitHub repository!
