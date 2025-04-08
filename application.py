@@ -46,7 +46,7 @@ def get_recommendations(title, cosine_sim=cosine_sim2):
     return df2['title'].iloc[movie_indices].tolist()
 
 # Streamlit UI
-st.title("🎬 Movies Recommendation System Using Artificial Intelligence")
+st.title("🎬 Cinematic Genius: AI-Powered Movie Recommendations")
 
 movie_list = df2['title'].values
 selected_movie = st.selectbox("Type or select a movie to get recommendation", movie_list)
