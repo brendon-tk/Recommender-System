@@ -47,7 +47,7 @@ def recommend(title):
 
 # Streamlit UI
 st.set_page_config(page_title="🎬 Movie Recommender", layout="wide")
-st.title("🎬 Movie Recommendation System")
+st.title("🎬 Cinematic Genius: AI-Powered Movie Recommendations")
 st.write("Enter a movie title to get similar movie recommendations based on description and genre.")
 
 selected_movie = st.selectbox("Type or select a movie", df2['title'].sort_values().unique())
