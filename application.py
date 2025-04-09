@@ -1,59 +1,61 @@
 import streamlit as st
 import pandas as pd
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.feature_extraction.text import CountVectorizer
 import requests
-import os
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
-st.set_page_config(layout="wide")
+# Load data
+df2 = pd.read_csv("tmdb_5000_movies.csv")
 
-# Load dataset
-df2 = pd.read_csv('tmdb_5000_movies.csv')
+# Fill NaNs
+df2['overview'] = df2['overview'].fillna('')
 
-# Create a "soup" feature if not already present
-if 'soup' not in df2.columns:
-    df2['soup'] = df2['overview'].fillna('') + ' ' + df2['genres'].fillna('')
+# TF-IDF Vectorizer
+tfidf = TfidfVectorizer(stop_words='english')
+tfidf_matrix = tfidf.fit_transform(df2['overview'])
 
-# Compute cosine similarity (cached for performance)
-cosine_sim_file = 'cosine_sim.pkl'
-if os.path.exists(cosine_sim_file):
-    cosine_sim2 = pd.read_pickle(cosine_sim_file)
-else:
-    count_vectorizer = CountVectorizer(stop_words='english')
-    count_matrix = count_vectorizer.fit_transform(df2['soup'])
-    cosine_sim2 = cosine_similarity(count_matrix, count_matrix)
-    pd.to_pickle(cosine_sim2, cosine_sim_file)
+# Cosine similarity
+cosine_sim2 = cosine_similarity(tfidf_matrix, tfidf_matrix)
 
-df2 = df2.reset_index()
-indices = pd.Series(df2.index, index=df2['title'])
+# Index mapping
+indices = pd.Series(df2.index, index=df2['title']).drop_duplicates()
 
-# Function to fetch movie poster
-def fetch_poster(movie_title):
-    api_key = st.secrets["TMDB_API_KEY"]
-    url = f"https://api.themoviedb.org/3/search/movie?api_key={api_key}&query={movie_title}"
-    response = requests.get(url).json()
-    if response['results']:
-        poster_path = response['results'][0].get('poster_path')
+# Function to fetch posters
+def fetch_poster(title):
+    try:
+        # This uses the TMDB search API to fetch poster URL
+        api_key = '823c5958046cde573b62665a52cf8c88'  # Replace with your actual API key
+        url = f"https://api.themoviedb.org/3/search/movie?api_key={api_key}&query={title}"
+        response = requests.get(url)
+        data = response.json()
+        poster_path = data['results'][0]['poster_path'] if data['results'] else None
         if poster_path:
             return f"https://image.tmdb.org/t/p/w500{poster_path}"
-    return "https://via.placeholder.com/150"
+        else:
+            return "https://via.placeholder.com/300x450?text=No+Image"
+    except:
+        return "https://via.placeholder.com/300x450?text=No+Image"
 
-# Recommendation function
-def get_recommendations(title, cosine_sim=cosine_sim2):
+# Function to recommend movies
+def recommend(title):
     idx = indices[title]
-    sim_scores = sorted(list(enumerate(cosine_sim[idx])), key=lambda x: x[1], reverse=True)[1:11]
+    sim_scores = list(enumerate(cosine_sim2[idx]))
+    sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
+    sim_scores = sim_scores[1:11]  # Top 10
     movie_indices = [i[0] for i in sim_scores]
     return movie_indices
 
 # Streamlit UI
-st.title("🎬 Cinematic Genius: AI-Powered Movie Recommendations")
+st.set_page_config(page_title="🎬 Movie Recommender", layout="wide")
+st.title("🎬 Movie Recommendation System")
+st.write("Enter a movie title to get similar movie recommendations based on description and genre.")
 
-movie_list = df2['title'].values
-selected_movie = st.selectbox("Type or select a movie to get recommendation", movie_list)
+selected_movie = st.selectbox("Type or select a movie", df2['title'].sort_values().unique())
 
 if st.button("Show recommendation"):
-    st.subheader(f"Top 10 Recommendations for 🎥 {selected_movie}")
-    recommendations_idx = get_recommendations(selected_movie)
+    recommendations_idx = recommend(selected_movie)
+
+    st.subheader(f"Top 10 Recommendations for 🎥 **{selected_movie}**")
 
     cols = st.columns(5)
     for i, idx in enumerate(recommendations_idx):
@@ -62,35 +64,8 @@ if st.button("Show recommendation"):
         overview = df2['overview'].iloc[idx] if pd.notna(df2['overview'].iloc[idx]) else "No description available."
         similarity = cosine_sim2[indices[selected_movie]][idx]
 
-        tooltip_html = f"""
-        <div style="position: relative; display: inline-block;">
-            <img src="{poster_url}" style="width: 100%; border-radius: 10px;" />
-            <div style="
-                visibility: hidden;
-                background-color: rgba(0,0,0,0.85);
-                color: #fff;
-                text-align: left;
-                border-radius: 6px;
-                padding: 10px;
-                position: absolute;
-                z-index: 1;
-                bottom: 105%;
-                left: 0;
-                width: 100%;
-                font-size: 12px;
-                line-height: 1.4;
-            " class="tooltiptext">
-                <strong>{movie}</strong><br>
-                <em>Similarity:</em> {similarity:.2%}<br>
-                {overview[:300]}...
-            </div>
-        </div>
-        <style>
-            div:hover .tooltiptext {{
-                visibility: visible;
-            }}
-        </style>
-        """
-
         with cols[i % 5]:
-            st.markdown(tooltip_html, unsafe_allow_html=True)
+            st.image(poster_url, caption=f"{movie}", use_column_width=True)
+            with st.expander("ℹ️ More Info"):
+                st.markdown(f"**Similarity Score:** {similarity:.2%}")
+                st.markdown(f"**Description:** {overview}")
