@@ -65,7 +65,7 @@ if st.button("Show recommendation"):
         similarity = cosine_sim2[indices[selected_movie]][idx]
 
         with cols[i % 5]:
-            st.image(poster_url, caption=f"{movie}", use_column_width=True)
+            st.image(poster_url, caption=f"{movie}", use_container_width=True)
             with st.expander("ℹ️ More Info"):
                 st.markdown(f"**Similarity Score:** {similarity:.2%}")
                 st.markdown(f"**Description:** {overview}")
