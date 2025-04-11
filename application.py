@@ -1,14 +1,27 @@
 import streamlit as st
 import pandas as pd
 import requests
+import ast
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 # Load data
 df2 = pd.read_csv("tmdb_5000_movies.csv")
 
-# Fill NaNs
+# Clean NaNs
 df2['overview'] = df2['overview'].fillna('')
+df2['genres'] = df2['genres'].fillna('[]')
+df2['release_date'] = df2['release_date'].fillna('Unknown')
+
+# Convert genres string to list of names
+def extract_genres(genre_str):
+    try:
+        genres = ast.literal_eval(genre_str)
+        return ', '.join([g['name'] for g in genres])
+    except:
+        return 'Unknown'
+
+df2['clean_genres'] = df2['genres'].apply(extract_genres)
 
 # TF-IDF Vectorizer
 tfidf = TfidfVectorizer(stop_words='english')
@@ -23,8 +36,7 @@ indices = pd.Series(df2.index, index=df2['title']).drop_duplicates()
 # Function to fetch posters
 def fetch_poster(title):
     try:
-        # This uses the TMDB search API to fetch poster URL
-        api_key = '823c5958046cde573b62665a52cf8c88'  # Replace with your actual API key
+        api_key = '823c5958046cde573b62665a52cf8c88'
         url = f"https://api.themoviedb.org/3/search/movie?api_key={api_key}&query={title}"
         response = requests.get(url)
         data = response.json()
@@ -36,7 +48,7 @@ def fetch_poster(title):
     except:
         return "https://via.placeholder.com/300x450?text=No+Image"
 
-# Function to recommend movies
+# Recommender function
 def recommend(title):
     idx = indices[title]
     sim_scores = list(enumerate(cosine_sim2[idx]))
@@ -62,10 +74,13 @@ if st.button("Show recommendation"):
         movie = df2['title'].iloc[idx]
         poster_url = fetch_poster(movie)
         overview = df2['overview'].iloc[idx] if pd.notna(df2['overview'].iloc[idx]) else "No description available."
-        similarity = cosine_sim2[indices[selected_movie]][idx]
+        genres = df2['clean_genres'].iloc[idx]
+        release = df2['release_date'].iloc[idx]
 
         with cols[i % 5]:
             st.image(poster_url, caption=f"{movie}", use_container_width=True)
             with st.expander("ℹ️ More Info"):
-                st.markdown(f"**Similarity Score:** {similarity:.2%}")
+                st.markdown(f"**Rank {i + 1} {'🔥' if i == 0 else ''}**")
+                st.markdown(f"**Genres:** {genres}")
+                st.markdown(f"**Release Date:** {release}")
                 st.markdown(f"**Description:** {overview}")
