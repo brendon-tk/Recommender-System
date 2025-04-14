@@ -95,6 +95,8 @@ TMDB API Documentation
 
 📱 Try It Out
 Scan the QR code below to try the app on your phone:
+![QR Code for the App](movie_recommender_qr.png)
+
 
 
 
