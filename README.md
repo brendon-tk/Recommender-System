@@ -60,7 +60,43 @@ In a world of overwhelming content on streaming platforms, this system offers a 
    git clone https://github.com/brendon-tk/Recommender-System.git
    cd Recommender-System
 
+🧠 Responsible AI Considerations
+No personal or sensitive user data is collected or used.
+
+Bias mitigation: Recommendations are based on publicly available metadata rather than user ratings or reviews, minimizing bias.
+
+Designed for explainability and transparency, prioritizing user understanding and trust.
+
+We aim to avoid filter bubbles by exploring diverse movie content.
+
+🚧 What's Next?
+Integrate collaborative filtering (based on user ratings).
+
+Add filters for genre, year, and language.
+
+Include user login to offer personalized history-based recommendations.
+
+Improve performance with NLP embeddings (e.g., BERT or Sentence Transformers).
+
+Host on HuggingFace Spaces and include mobile responsiveness.
+
+📚 References
+Zhang, X., Lin, C., & Wang, M. (2022). Neural Collaborative Filtering for Recommender Systems: A Deep Learning Approach. ACM Transactions on Intelligent Systems and Technology.
+
+Kaggle: TMDB 5000 Movies Dataset
+[TMDB 500 Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)
+
+TMDB API Documentation
+[Documentation](https://developer.themoviedb.org/docs/getting-started?)
+
 ## ✅ Project Kanban Board
 
 [View our Kanban Board](https://github.com/users/brendon-tk/projects/1)
+
+📱 Try It Out
+Scan the QR code below to try the app on your phone:
+
+
+
+
 
