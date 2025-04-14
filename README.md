@@ -15,9 +15,9 @@ This project is a Movies Recommendation System that leverages artificial intelli
 
 ## 👥 Team Members
 
-- [Tony Afuti](https://github.com/tonyafuti)  
-- [Luke Henkel](https://github.com/lukehenkel)  
-- [Vanessa Hernandez](https://github.com/vanessa-hernandez)  
+- [Tony Afuti](https://github.com/tafuti6)  
+- [Luke Henkel](https://github.com/lghenkel)  
+- [Vanessa Hernandez](https://github.com/VaHern)  
 - [Brendon Matsikinya](https://github.com/brendon-tk)  
 
 ---
@@ -59,3 +59,7 @@ In a world of overwhelming content on streaming platforms, this system offers a 
    ```bash
    git clone https://github.com/brendon-tk/Recommender-System.git
    cd Recommender-System
+
+✅ Project Kanban Board
+Follow our task planning and progress on our GitHub project board:
+👉 Kanban Board
