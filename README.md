@@ -1,45 +1,61 @@
-# Movies Recommendation System Using Artificial Intelligence
+# 🎬 AI-Powered Movie Recommendation System  
 ### Team 10: Tony Afuti, Luke Henkel, Vanessa Hernandez, Brendon Matsikinya
 
-## Overview
+![App Screenshot](1.png)  
+![App Screenshot](2.png)  
+![App Screenshot](3.png)  
 
-This project is a Movies Recommendation System that leverages artificial intelligence to suggest movies based on user input. It utilizes cosine similarity to compare movie descriptions and genres, providing personalized recommendations.
+---
 
-![App Screenshot](1.png)  <!-- Replace with the path to your first image -->
-![App Screenshot](2.png)  <!-- Replace with the path to your second image -->
-![App Screenshot](3.png)  <!-- Replace with the path to your 'r' image -->
+## 🧠 Overview
 
-## Features
+This project is a Movies Recommendation System that leverages artificial intelligence to suggest movies based on user input. It utilizes **cosine similarity** to compare movie descriptions and genres, providing personalized recommendations.
+
+---
+
+## 👥 Team Members
+
+- [Tony Afuti](https://github.com/tonyafuti)  
+- [Luke Henkel](https://github.com/lukehenkel)  
+- [Vanessa Hernandez](https://github.com/vanessa-hernandez)  
+- [Brendon Matsikinya](https://github.com/brendon-tk)  
+
+---
+
+## 🎯 Project Scope
+
+The scope of this project focuses on building a personalized movie recommendation system using **content-based filtering techniques**. It compares movie metadata such as overviews and genres, helping users discover movies with similar themes and characteristics.
+
+---
+
+## 📈 Why This Matters
+
+In a world of overwhelming content on streaming platforms, this system offers a solution for surfacing relevant, interesting films. For businesses, this improves customer satisfaction, time-on-platform, and user retention—translating to higher engagement and monetization.
+
+---
+
+## ✨ Features
 
 - **Movie Search**: Users can search for movies by title.
-- **Recommendations**: Top 10 movie recommendations based on the selected movie.
-- **Poster Fetching**: Retrieves movie posters from The Movie Database (TMDB) API.
+- **Recommendations**: Top 10 movie suggestions based on the selected movie.
+- **Poster Fetching**: Fetches movie posters using The Movie Database (TMDB) API.
+- **User Interface**: Built using Streamlit for fast and interactive experience.
 
-## Technologies Used
+---
 
-- **Python**: Main programming language.
-- **Streamlit**: Framework for building the web application.
+## 🧪 Technologies Used
+
+- **Python**: Core programming language.
+- **Streamlit**: Web application framework.
 - **Pandas**: Data manipulation and analysis.
-- **Scikit-learn**: Used for cosine similarity calculations.
-- **Requests**: For API calls to fetch movie data and posters.
+- **Scikit-learn**: Cosine similarity for content filtering.
+- **Requests**: API communication for movie posters.
 
-## Installation
+---
+
+## 🚀 Installation & Usage
 
 1. Clone the repository:
-
    ```bash
-   git clone https://github.com/yourusername/Movies-Recommendation-System.git
-   cd Movies-Recommendation-System
-Usage
-Run the Streamlit app:
-bash
-
-Copy
-streamlit run application.py
-Open your browser and navigate to https://recommender-system-qdumaehqzs7v2jhah8sacu.streamlit.app/ to view the app.
-Type or select a movie to get recommendations.
-Dataset
-The dataset used in this project is the TMDB 5000 Movies Dataset, which includes various attributes of movies such as title, overview, and genres.
-
-Contributing
-Contributions are welcome! Please create a pull request for any improvements or features you would like to add.
+   git clone https://github.com/brendon-tk/Recommender-System.git
+   cd Recommender-System
