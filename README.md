@@ -60,6 +60,7 @@ In a world of overwhelming content on streaming platforms, this system offers a 
    git clone https://github.com/brendon-tk/Recommender-System.git
    cd Recommender-System
 
-✅ Project Kanban Board
-Follow our task planning and progress on our GitHub project board:
-👉 Kanban Board
+## ✅ Project Kanban Board
+
+[View our Kanban Board](https://github.com/users/brendon-tk/projects/1)
+
