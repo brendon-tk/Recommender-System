@@ -1,4 +1,5 @@
 # Movies Recommendation System Using Artificial Intelligence
+### Team 10: Tony Afuti, Luke Henkel, Vanessa Hernandez, Brendon Matsikinya
 
 ## Overview
 
