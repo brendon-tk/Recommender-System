@@ -36,7 +36,7 @@ bash
 
 Copy
 streamlit run application.py
-Open your browser and navigate to http://localhost:8501 to view the app.
+Open your browser and navigate to https://recommender-system-qdumaehqzs7v2jhah8sacu.streamlit.app/ to view the app.
 Type or select a movie to get recommendations.
 Dataset
 The dataset used in this project is the TMDB 5000 Movies Dataset, which includes various attributes of movies such as title, overview, and genres.
