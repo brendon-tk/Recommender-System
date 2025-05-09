@@ -7,8 +7,8 @@ This project aims to develop a personalized movie recommendation system that hel
 ### Dataset Sources
 #### 1. MovieLens Dataset
 Source: https://grouplens.org/datasets/movielens/ 
-Files used: movies.csv, ratings.csv
-Used for: user ratings, movie titles, genres
+- Files used: movies.csv, ratings.csv
+- Used for: user ratings, movie titles, genres
 #### 2. Kaggle: TMDB 5000 Movies Dataset TMDB 500 Dataset
 Source: https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata
 
