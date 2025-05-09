@@ -1,5 +1,11 @@
 # 🎬 AI-Powered Movie Recommendation System  
-### Team 10: Tony Afuti, Luke Henkel, Vanessa Hernandez, Brendon Matsikinya
+## Team Members
+
+- [Tony Afuti](https://github.com/tafuti6)  
+- [Luke Henkel](https://github.com/lghenkel)  
+- [Vanessa Hernandez](https://github.com/VaHern)  
+- [Brendon Matsikinya](https://github.com/brendon-tk)  
+
 
 # Introduction
 This project aims to develop a personalized movie recommendation system that helps users discover films based on their preferences. By combining content-based filtering and collaborative techniques, the system recommends movies using metadata such as overviews, genres, and ratings. The hybrid approach ensures both accuracy and scalability, with future plans to implement Neural Collaborative Filtering (NCF) for enhanced personalization. The goal is to create an intelligent, adaptive recommendation engine that improves over time and enhances the user experience.
@@ -51,16 +57,6 @@ The system employs Singular Value Decomposition (SVD) using the Surprise library
 ### Frontend & Backend
 The backend communicates seamlessly with the frontend, which is built using Streamlit. Streamlit acts as the interactive interface where users can input preferences, view movie recommendations, and explore related information. The backend handles the recommendation logic, fetching data from the TMDb API, processing it, and passing recommendations to the frontend for display in real-time. This integration allows users to easily interact with the system and receive dynamic, personalized results.
 
----
-
-## Team Members
-
-- [Tony Afuti](https://github.com/tafuti6)  
-- [Luke Henkel](https://github.com/lghenkel)  
-- [Vanessa Hernandez](https://github.com/VaHern)  
-- [Brendon Matsikinya](https://github.com/brendon-tk)  
-
----
 
 ## Our Main Aim
 This project aims to create a recommendation system where users can receive movie suggestions based on their preferences. It uses a content-based filtering algorithm to analyze movie metadata and suggest films with similar themes and genres.
