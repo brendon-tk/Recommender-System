@@ -115,10 +115,11 @@ Responsible AI Considerations
 This paper significantly influenced our design choices, particularly in shaping the direction of our recommendation system. Although our current collaborative filtering implementation relies on classical Singular Value Decomposition (SVD), the insights from this research were instrumental in inspiring the adoption of a hybrid model and our plan to transition toward Neural Collaborative Filtering (NCF) in the future. The reference emphasizes the importance of deep representation learning, reinforcing the need to combine metadata with latent user/item factors to improve recommendation accuracy. Additionally, it encouraged us to explore hybrid systems as a way to enhance both scalability and personalization, ensuring that the system can efficiently handle large datasets while still providing tailored recommendations to users.
 
 
-## ✅ Project Kanban Board
+# Project Kanban Board
 
-[View our Kanban Board](https://github.com/users/brendon-tk/projects/1)
+- [View our Kanban Board](https://github.com/users/brendon-tk/projects/1)
 
-📱 Try It Out
-Scan the QR code below to try the app on your phone:
+# Try It Out
+- Scan the QR code below to try the app on your phone:
+
 ![QR Code for the App](movie_recommender_qr.png)
