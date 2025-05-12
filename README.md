@@ -68,6 +68,7 @@ The scope of this project focuses on building a personalized movie recommendatio
 
 In a world of overwhelming content on streaming platforms, this system offers a solution for surfacing relevant, interesting films. For businesses, this improves customer satisfaction, time-on-platform, and user retention—translating to higher engagement and monetization.
 
+Our project is different than in class material because we employ the hybrid recommendation systems, as referenced in the paper. We built upon the SVD that we learned in lectures, but were able to produce our recommendations without using user feedback matrices like we learned in class. 
 ---
 
 ##  Features
